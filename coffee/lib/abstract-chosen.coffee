@@ -173,7 +173,7 @@ class AbstractChosen
     if results < 1 and searchText.length
       this.update_results_content ""
       this.no_results searchText
-    else
+    else if not this.is_multiple or searchText.length
       this.update_results_content this.results_option_build()
       this.winnow_results_set_highlight()
 
