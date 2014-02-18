@@ -458,7 +458,7 @@ class @Chosen extends AbstractChosen
         @backstroke_length = this.search_field.value.length
         break
       when 9
-        this.result_select(evt) if this.results_showing and (not @is_multiple or @result_highlight)
+        this.result_select(evt) if this.results_showing && this.search_field.val().length and (not @is_multiple or @result_highlight)
         @mouse_on_container = false
         break
       when 13
