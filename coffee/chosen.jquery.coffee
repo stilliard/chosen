@@ -40,7 +40,7 @@ class Chosen extends AbstractChosen
     @container = ($ "<div />", container_props)
 
     if @is_multiple
-      @container.html '<ul class="chosen-choices"><li class="search-field"><input type="text" value="' + @default_text + '" class="default" autocomplete="off" style="width:25px;" /></li></ul><div class="chosen-drop"><ul class="chosen-results"></ul></div>'
+      @container.html '<ul class="chosen-choices"><li class="search-field"><input type="text" value="' + @default_text + '" class="default" autocomplete="off" style="width:150px;" /></li></ul><div class="chosen-drop"><ul class="chosen-results"></ul></div>'
     else
       @container.html '<a class="chosen-single chosen-default" tabindex="-1"><span>' + @default_text + '</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" /></div><ul class="chosen-results"></ul></div>'
 
@@ -462,6 +462,7 @@ class Chosen extends AbstractChosen
         break
       when 9
         this.result_select(evt) if this.results_showing && this.search_field.val().length and (not @is_multiple or @result_highlight)
+        # this.result_select(evt) if this.results_showing and not @is_multiple
         @mouse_on_container = false
         break
       when 13
@@ -494,7 +495,7 @@ class Chosen extends AbstractChosen
       div.text @search_field.val()
       $('body').append div
 
-      w = div.width() + 25
+      w = div.width() + 150
       div.remove()
 
       f_width = @container.outerWidth()
